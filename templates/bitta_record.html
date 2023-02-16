@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record</title>
+</head>
+<body>
+    <h1 align="center" style="color:OrangeRed;">Record haqida ma`lumot</h1>
+  <br>
+  <h1 align="center" style="color:Olive;">Talaba: {{record.talaba}}</h1>
+  <h1 align="center" style="color:Olive;">Kitob: {{record.kitob}}</h1>
+  <h1 align="center" style="color:Olive;">Admin: {{record.Admin}}</h1>
+  <h1 align="center" style="color:Olive;">Olingan sanasi: {{record.olingan_sana}}</h1>
+  <h1 align="center" style="color:Olive;">Qaytarish sanasi: {{record.qaytarish_sanasi}}</h1>
+  <h1 align="center" style="color:Olive;">Qaytardi: {{record.qaytardi}}</h1>
+</body>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <h2 align="center" style="background-color:PaleGreen ;">Recordning ma`lumotini o`zgartirish</h2>
+    <br>
+    <br>
+    <form method="post">{% csrf_token %}
+        <h2 align="center"><label>Qaytarish sanasi: </label>
+        <input type="date" name="q_s" value="{{record.qaytarish_sanasi}}">
+            <label>Qaytardi: </label>
+        {% if record.qaytardi == "ha" %}
+            <input type="checkbox" name="q" checked>
+        {% else %}
+            <input type="checkbox" name="q">
+        {% endif %}
+        <button type="submit">Save</button></h2>
+    </form>
+<h1 align="center"><a href="/record/"><button>Exit</button></a></h1>
+</html>
+
+

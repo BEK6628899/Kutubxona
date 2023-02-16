@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif</title>
+</head>
+<body>
+    <h1 align="center" style="background-color:Yellow;">Mualliflar ro`yxati</h1>
+    <form>
+        <h2 align="center"><input type="text" name="Search🔎">
+            <button type="submit">Search🔎</button></h2>
+                  <h2 align="center"><button type="submit">Exit</button></h2>
+              <a href="/adminlar/"></a>
+    </form>
+    <hr>
+    <br>
+    <br>
+    <h2 style="background-color:CadetBlue;" align="center"> Yangi muallif qo`shish </h2>
+    <br>
+      <form action="/mualliflar/" method="post">{% csrf_token %}
+       <h2 align="center"><input type="text" name="i" placeholder="Ismi">
+        <input type="number" name="k" placeholder="Kitoblari soni">
+        <input type="date" name="t" placeholder="tug`ilgan sanasi">
+        <input type="text" name="j" placeholder="jinsi">
+        <button type="submit">Qo`shish</button></h2>
+    </form>
+    <h1 align="center"><a href="/"><button>Bosh sahifaga qaytish</button></a></h1>
+    <br>
+    <br>
+    {% for i in Mualliflar %}
+    <h2>{{i.id}}. <a href="/muallif/{{i.id}}/"> {{i.ism}} </a></h2>
+    <a href="/muallif_ochir/{{i.id}}/"><button>Delete🗑</button></a>
+    {% endfor %}
+</body>
+</html>

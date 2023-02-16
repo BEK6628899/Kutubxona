@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bitta_talaba</title>
+</head>
+<body>
+    <h1 align="center" style="color:OrangeRed;">{{talaba.ism}}</h1>
+    <br>
+    <h1  align="center" style="color:Olive;">Kurs: {{talaba.kursi}}</h1>
+    <h1  align="center" style="color:Olive;">Bitiruv: {{talaba.bitiruvchi}}</h1>
+    <h1  align="center" style="color:Olive;">Kitoblari soni: {{talaba.Kitoblar_soni}}</h1>
+</body>
+<br>
+<br>
+<hr>
+<h1 align="center" style="background-color:PaleGreen ;">Talaba malumotini o`zgartirish</h1>
+  <br>
+  <br>
+  <br>
+  <form method="post">{% csrf_token %}
+   <h2 align="center"><label>Ism: </label>
+    <input type="text" name="i" value="{{talaba.ism}}">
+    <label>Kurs: </label>
+    <input type="number" name="k" value="{{talaba.kursi}}">
+    <label>Kitob soni: </label>
+    <input type="number" name="k_s" value="{{talaba.kitoblar_soni}}">
+       <label>Bitiruvchi: </label>
+      {% if talaba.bitiruvchi == "ha" %}
+      <input type="checkbox" name="b" checked>
+      {% else %}
+      <input type="checkbox" name="b">
+      {% endif %}
+
+       <button type="submit">Save</button></h2>
+  </form>
+  <h1 align="center"><a href="/talabalar/"><button>Exit</button></a></h1>
+  <br>
+</html>

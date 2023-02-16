@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+    <h1 align="center" style="color:OrangeRed;">{{Admin.ism}}</h1>
+    <br>
+    <h1 align="center" style="color:Olive;">Ish vaqti: ({{Admin.ish_vaqti}})</h1>
+</body>
+    <hr>
+    <br>
+    <h2 align="center" style="background-color:PaleGreen ;">Adminning ma'limotini o`zgartirish</h2>
+    <br>
+    <br>
+    <form method="post">{% csrf_token %}
+       <h2 align="center"><label>Ismi: </label>
+        <input type="text" name="i" value="{{Admin.ism}}">
+        <label>Ish vaqti: </label>
+        <input type="date" name="ish" value="{{Admin.ish_vaqti}}">
+           <button type="submit">Save</button></h2>
+    </form>
+    <h1 align="center"><a href="/adminlar/"><button>Exit</button></a></h1>
+</html>
+
+
+

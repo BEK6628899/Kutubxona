@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha_kitoblar</title>
+</head>
+<body>
+    <h1 align="center" style="background-color:SlateBlue">Barcha kitoblar ro`yxati</h1>
+    <form>
+        <h2 align="center"><input type="text" name="Search🔎">
+            <button type="submit">Search🔎</button></h2>
+                  <h2 align="center"><button type="submit">Exit</button></h2>
+              <a href="/kitoblar/"></a>
+    </form>
+    <hr>
+    <br>
+    <h2 align="center" style="background-color:Yellow;">Yangi kitob qo`shish</h2>
+    <br>
+    <br>
+    <form action="/kitoblar/" method="post">{% csrf_token %}
+    <h2 align="center">{{forma}}
+       <button type="submit">Qo`shish</button></h2>
+            </form>
+    <h1 align="center"><a href="/"><button>Bosh sahifaga qaytish</button></a></h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% for i in barcha_kitob %}
+        <h2 style="color:Tomato">{{i.id}}. <a href="/kitob/{{i.id}}">{{i.nom}}</a> </h2>
+        <a href="/kitob_ochir/{{i.id}}/"><button>O'chirish🗑</button></a>
+    {% endfor %}
+<!--        <input type="text" name="n" placeholder="Nom">-->
+<!--        <input type="number" name="s" placeholder="Sahifa">-->
+<!--        <input type="text" name="j" placeholder="Janr">-->
+<!--        <select name="m">-->
+<!--            {% for i in Mualliflar %}-->
+<!--            <option value="{{i.id}}">{{i.ism}}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+</body>
+</html>
+
+
+

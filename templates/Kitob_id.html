@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitob_id</title>
+</head>
+<body>
+    <h1 align="center" style="color:OrangeRed;">{{kitob.nom}}</h1>
+    <br>
+    <h1 align="center" style="color:Olive;">Janiri: {{kitob.janr}}</h1>
+    <h1 align="center" style="color:Olive;">Sahifasi soni: {{kitob.sahifa}}</h1>
+    <h1 align="center" style="color:Olive;">Muallifi: {{kitob.muallif}}</h1>
+</body>
+<br>
+<br>
+<hr>
+<h1 align="center" style="background-color:PaleGreen ;">Kitob malumotini o`zgartirish</h1>
+  <br>
+  <br>
+  <br>
+  <form method="post">{% csrf_token %}
+    <h2 align="center"><label>Nom: </label>
+    <input type="text" name="n" value="{{kitob.nom}}">
+    <label>Sahifa soni: </label>
+    <input type="number" name="s" value="{{kitob.sahifa}}">
+    <label>Janiri: </label>
+    <input type="text" name="j" value="{{kitob.janr}}">
+      <label>Muallif: </label>
+             <select name="m">
+                 <option value="{{kitob.muallif.id}}">{{kitob.muallif.ism}}</option>
+            {% for i in Mualliflar %}
+                 {% if i != kitob.muallif %}
+            <option value="{{i.id}}">{{i.ism}}</option>
+                 {% endif %}
+            {% endfor %}
+        </select>
+    <button type="submit">Save</button></h2>
+  </form>
+  <h2 align="center"><a href="/talabalar/"><button>Exit</button></a></h2>
+  <br>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bita Muallif</title>
+</head>
+<body>
+    <h1 align="center" style="color:OrangeRed;">{{muallif.ism}}</h1>
+    <br>
+    <h1 align="center" style="color:Olive;">Trik: {{muallif.trik}}</h1>
+    <h1 align="center" style="color:Olive;">Kitoblari soni: {{muallif.kitob_soni}}</h1>
+    <h1 align="center" style="color:Olive;">Jisni: {{muallif.jinsi}}</h1>
+    <h1 align="center" style="color:Olive;">Tug`ilgan sanasi: ({{muallif.tugilgan_sanasi}})</h1>
+</body>
+<form method="post">{% csrf_token %}
+    <hr>
+    <br>
+    <br>
+    <h2 align="center" style="background-color:PaleGreen ;">Muallifning ma`lumotini o`zgartirish</h2>
+    <br>
+    <br>
+    <h2 align="center"><label>Ismi: </label>
+    <input type="text" name="i" value="{{muallif.ism}}">
+    <label>Kitoblari soni: </label>
+    <input type="number" name="k_s" value="{{muallif.kitob_soni}}">
+    <label>Jinsi: </label>
+    <input type="text" name="j" value="{{muallif.jinsi}}">
+    <label>Tug`ilgan sanasi: </label>
+    <input type="date" name="t_s" value="{{muallif.tugilgan_sanasi}}">
+    <label>Yoshi: </label>
+    <input type="number" name="y" value="{{muallif.yosh}}">
+                <label>Trikligi: </label>
+        {% if muallif.trik == "ha" %}
+             <input type="checkbox" name="t" checked>
+        {% else %}
+            <input type="checkbox" name="t">
+        {% endif %}
+        <button type="submit">Save</button></h2>
+</form>
+    <h2 align="center"><a href="/mualliflar/"><button>Exit</button></a></h2>
+</html>
+
+
+

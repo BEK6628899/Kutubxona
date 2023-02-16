@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h1 align="center" style="background-color:Violet;">Barcha recordlar ro`yxati</h1>
+        <br>
+        <form>
+            <a href=""><button>Exit</button></a>
+        <h2 align="center"><input type="text" name="Search🔎">
+            <button type="submit">Search🔎</button></h2>
+                      <h2 align="center"><button type="submit">Exit</button></h2>
+              <a href="/adminlar/"></a>
+        </form>
+        <hr>
+        <h2 style="background-color:GreenYellow;" align="center">Yangi record qo`shish</h2>
+        <br>
+        <form action="/record/" method="post">{% csrf_token %}
+        <h2 align="center"><select name="t">
+            {% for i in Talabalar %}
+            <option value="{{i.id}}">{{i.ism}}</option>
+            {% endfor %}
+        </select>
+        <select name="k">
+            {% for i in Kitoblar %}
+            <option value="{{i.id}}">{{i.nom}}</option>
+            {% endfor %}
+        </select>
+        <select name="a">
+            {% for i in adminlar %}
+            <option value="{{i.id}}">{{i.ism}}</option>
+            {% endfor %}
+        </select>
+        <input type="date" name="o" placeholder="Olingan sanasi">
+        <input type="date" name="qs" placeholder="Qaytarish sanasi">
+        <input type="text" name="q" placeholder="Qaytarganligi">
+             <button type="submit">Qo`shish</button></h2>
+        </form>
+        <h1 align="center"><a href="/"><button>Bosh sahifaga qaytish</button></a></h1>
+        <br>
+        <br>
+<!--        <form action="/record/" method="post">{% csrf_token %}-->
+<!--           <h2 align="center">{{forma}}  &lt;!&ndash; {{forma.as_p}} &ndash;&gt;-->
+<!--               <button type="submit">Qo`shish</button></h2>-->
+<!--        </form>-->
+        <br>
+        {% for i in recordlar %}
+            <h2>{{i.id}}. <a href="/bitta_record/{{i.id}}/"> Talaba recordi: {{i.talaba.ism}}</a></h2>
+        <a href="/record_ochir/{{i.id}}/"><button>Delete🗑</button></a>
+        {% endfor %}
+</body>
+</html>
+
+

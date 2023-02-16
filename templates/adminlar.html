@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adminlar</title>
+</head>
+<body>
+  <h1 align="center" style="background-color:Chartreuse;">Barcha adminlar ro`yxati!</h1>
+    <form>
+        <h2 align="center"><input type="text" name="Search🔎">
+            <button type="submit">Search🔎</button></h2>
+                  <h2 align="center"><button type="submit">Exit</button></h2>
+              <a href="/adminlar/"></a>
+    </form>
+  <hr>
+  <br>
+  <h2 align="center" style="background-color:Gold;">Yangi admin qo`shish</h2>
+  <br>
+    <form action="/adminlar/" method="post">{% csrf_token %}
+        <h2 align="center">{{forma}}
+      <button type="submit">Qo`shish</button></h2>
+    </form>
+  <h1 align="center"><a href="/"><button>Bosh sahifaga qaytish</button></a></h1>
+  <br>
+  <br>
+  {% for i in Adminlar %}
+      <h2>{{i.id}}. <a href="/Admin/{{i.id}}/">{{i.ism}}</a></h2>
+  <a href="/admin_ochir/{{i.id}}/"><button>O'chirish🗑</button></a>
+  {% endfor %}
+<!--      <input type="text" name="i" placeholder="Ismi">-->
+<!--      <select name="ish">-->
+<!--          {% for i in Adminlar %}-->
+<!--          <option>{{i.ish_vaqti}}</option>-->
+<!--          {% endfor %}-->
+<!--      </select>-->
+</body>
+</html>
+<!--
+h1>{{i.id}}. <a href="/muallif/{{i.id}}/"> {{i.ism}} </a></h1>
+-->
+
+

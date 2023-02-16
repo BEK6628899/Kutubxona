@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talabalar</title>
+</head>
+<body>
+    <h1 align="center" style="background-color:BurlyWood;">Talabalar ro`yxati</h1>
+    <form>
+        <h2 align="center"><input type="text" name="Search🔎">
+        <button type="submit">Search🔎</button></h2>
+                  <h2 align="center"><button type="submit">Exit</button></h2>
+              <a href="/adminlar/"></a>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <h2 style="background-color:Cyan;" align="center">Yangi talaba qo`shish</h2>
+    <br>
+        <form action="/talabalar/" method="post">{% csrf_token %}
+        <h2 align="center">{{forma}}
+        <button type="submit">Qo`shish</button></h2>
+    </form>
+    <h1 align="center"><a href="/"><button>Bosh sahifaga qaytish</button></a></h1>
+    <br>
+    <br>
+    {% for i in Talabalar %}
+    <h2>{{i.id}}. <a href="/talaba/{{i.id}}/"> {{i.ism}} </a></h2>
+    <a href="/talaba_ochir/{{i.id}}/"><button>O'chirish🗑</button></a>
+    {% endfor %}
+</body>
+</html>
+
+
+

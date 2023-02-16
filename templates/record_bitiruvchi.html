@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 align="center" style="background-color:Yellow;">Bitiruvchi talabalarning recordlari!</h1>
+    <br>
+    <hr>
+    {% for i in bitiruvchilar %}
+        <h2 align="center" style="color:RebeccaPurple">Bitiruvchi talaba: {{i.talaba.ism}}:
+            <br>
+        Kutubxonadan olgan kitobi: {{i.kitob.nom}}
+            <br>
+            Admin: {{i.Admin.ism}}
+            <br>
+            Olgan sanasi: ({{i.olingan_sana}})
+            <br>
+            Qaytarish sanasi: ({{i.qaytarish_sanasi}})
+            <br>
+            Qaytarganligi: {{i.qaytardi}}</h2>
+    {% endfor %}
+</body>
+</html>
